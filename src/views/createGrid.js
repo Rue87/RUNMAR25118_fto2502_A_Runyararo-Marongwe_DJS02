@@ -26,11 +26,21 @@ export const createGrid = () => {
           updated: DateUtils.format(p.updated),
           seasons: SeasonService.count(p.id),
         };
-        container.appendChild(preview);
+        //Handle podcastClick from component
+preview.addEventListener("podcastClick", (e) => {
+  const podcastData = e.detail;
+  // openModal(e.detail); 
+})
+ container.appendChild(preview);
       });
-    }
-  };
+    }};
 };
+
+  
+
+
+
+
         /*const genreNames = GenreService.getNames(p.genres);
         
         const updatedDate = DateUtils.format(p.updated);

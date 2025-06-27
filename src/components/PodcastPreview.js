@@ -78,7 +78,14 @@ export class PodcastPreview extends HTMLElement {
         </div>
       </div>
     `;
-  }
+this.shadowRoot.querySelector(".card").addEventListener("click", () => {
+  this.dispatchEvent(new CustomEvent("podcastClick", {
+    detail: this._data,
+    bubbles: true,
+    composed: true
+  }));
+});
+};
 }
 
 customElements.define("podcast-preview", PodcastPreview);
