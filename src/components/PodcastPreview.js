@@ -14,7 +14,7 @@ export class PodcastPreview extends HTMLElement {
   render() {
     if (!this._data) return;
 
-    const { title, image, genres, updated } = this._data;
+    const { title, image, genres, updated,seasons } = this._data;
 
      this.shadowRoot.innerHTML = `
       <style>
@@ -43,6 +43,12 @@ export class PodcastPreview extends HTMLElement {
           font-size: 1.1rem;
           margin: 0 0 0.5rem 0;
         }
+        .seasons {
+          font-size: 0.85rem;
+          font-weight: 500;
+          color: #333;
+          margin-bottom: 0.4rem;
+     }
         .tags {
           display: flex;
           gap: 0.5rem;
@@ -64,10 +70,11 @@ export class PodcastPreview extends HTMLElement {
         <div class="cover" style="background-image: url('${image}')"></div>
         <div class="info">
           <h2>${title}</h2>
+          <div class="seasons">${seasons} ${seasons === 1 ? "season" : "seasons"}</div>
           <div class="tags">
             ${genres.map(g => `<span class="tag">${g}</span>`).join("")}
           </div>
-          <div class="updated">Updated: ${updated}</div>
+          <div class="updated">${updated}</div>
         </div>
       </div>
     `;

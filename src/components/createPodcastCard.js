@@ -1,4 +1,4 @@
-import { GenreService } from "../utils/GenreService.js";
+/*import { GenreService } from "../utils/GenreService.js";
 import { DateUtils } from "../utils/DateUtils.js";
 
 /**
@@ -11,7 +11,7 @@ import { DateUtils } from "../utils/DateUtils.js";
  * @param {Function} onClick - Function to call on card click.
  * @returns {HTMLDivElement} The constructed card element.
  */
-export const createPodcastCard = (podcast, onClick) => {
+/*export const createPodcastCard = (podcast, onClick) => {
   const genreNames = GenreService.getNames(podcast.genres);
   const card = document.createElement("div");
   card.className = "card";
@@ -29,4 +29,4 @@ export const createPodcastCard = (podcast, onClick) => {
 
   card.addEventListener("click", () => onClick(podcast));
   return card;
-};
+};*/

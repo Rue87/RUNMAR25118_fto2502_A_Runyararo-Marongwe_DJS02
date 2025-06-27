@@ -13,7 +13,8 @@ export const GenreService = {
    */
   getNames(genreIds) {
     return genreIds.map(
-      (id) => genres.find((g) => g.id === id)?.title || "Unknown"
-    );
-  },
+    (id => {  const genre = genres.find(g => g.id === id);
+      return genre?.title || "Unknown";
+    }));
+  }
 };

@@ -1,6 +1,8 @@
 //import { createPodcastCard } from "../components/createPodcastCard.js";
-import { createModal } from "../components/createModal.js";
-
+//import { createModal } from "../components/createModal.js";
+import { GenreService } from "../utils/GenreService.js";
+import { DateUtils } from "../utils/DateUtils.js";
+import { SeasonService } from "../utils/seasonService.js";
 /**
  * Grid Renderer - Responsible for rendering the grid of podcast preview components.
  *
@@ -18,10 +20,30 @@ export const createGrid = () => {
       container.innerHTML = "";
       podcastList.forEach((p) => {
         const preview = document.createElement("podcast-preview");
+        preview.data = {
+          ...p,
+          genres: GenreService.getNames(p.genres),
+          updated: DateUtils.format(p.updated),
+          seasons: SeasonService.count(p.id),
+        };
+        container.appendChild(preview);
+      });
+    }
+  };
+};
+        /*const genreNames = GenreService.getNames(p.genres);
+        
+        const updatedDate = DateUtils.format(p.updated);
+
+        
         preview.data = p; // Calls the setter in PodcastPreview.js
+        preview.genres = genreNames,// Pass genre names, not IDs
+        preview.updated = updatedDate,
+        preview.seasons = p.seasons?.length || 1, 
+
         //const card = createPodcastCard(p, createModal.open);//
         container.appendChild(preview);
       });
     },
   };
-};
+};*/
