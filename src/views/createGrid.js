@@ -1,5 +1,5 @@
 //import { createPodcastCard } from "../components/createPodcastCard.js";
-//import { createModal } from "../components/createModal.js";
+import { createModal } from "../components/createModal.js";
 import { GenreService } from "../utils/GenreService.js";
 import { DateUtils } from "../utils/DateUtils.js";
 import { SeasonService } from "../utils/seasonService.js";
@@ -8,6 +8,8 @@ import { SeasonService } from "../utils/seasonService.js";
  *
  * @principle SRP - Manages layout and rendering only; uses custom element for podcast cards
  */
+
+
 export const createGrid = () => {
   const container = document.getElementById("podcastGrid");
 
@@ -30,6 +32,7 @@ export const createGrid = () => {
 preview.addEventListener("podcastClick", (e) => {
   const podcastData = e.detail;
   // openModal(e.detail); 
+  createModal.open(preview._data);
 })
  container.appendChild(preview);
       });
