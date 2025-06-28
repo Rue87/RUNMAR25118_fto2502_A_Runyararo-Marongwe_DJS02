@@ -6,8 +6,7 @@ import { seasons } from "../data.js";
  */
 
 export const SeasonService = {
-
-     /**
+  /**
    * Returns the number of seasons for a given podcast ID.
    *
    * @param {string} podcastId - The unique ID of the podcast.

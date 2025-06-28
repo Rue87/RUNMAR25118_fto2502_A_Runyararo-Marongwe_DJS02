@@ -3,23 +3,9 @@
  *
  * @principle SRP - Single Responsibility Principle: This module only formats dates and does not handle any unrelated logic.
  */
-/*export const DateUtils = {
-  /**
-   * Formats a date string into a human-readable format.
-   * @param {string} dateStr - ISO date string.
-   * @returns {string} Formatted date string.
-   */
-  /*format(dateStr) {
-    const date = new Date(dateStr);
-    return `Updated ${date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    })}`;
-  },
-};*/
+
 export const DateUtils = {
-   /**
+  /**
    * Formats a date string into a human-readable relative format.
    * @param {string} dateString - Any valid date string.
    * @returns {string} Human-readable format like "Updated 3 days ago"
@@ -39,6 +25,6 @@ export const DateUtils = {
     if (days < 30) return `Updated ${Math.floor(days / 7)} week(s) ago`;
 
     return `Updated ${Math.floor(days / 30)} month(s) ago`;
-   /* return `Updated on ${date.toDateString()}`;*/
-  }
+    /* return `Updated on ${date.toDateString()}`;*/
+  },
 };

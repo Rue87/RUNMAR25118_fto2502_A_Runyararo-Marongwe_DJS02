@@ -63,7 +63,7 @@ export class PodcastPreview extends HTMLElement {
           height: 160px;
           background-size: cover;
           background-position: center;
-          margin bottom: 1rem;
+          margin-bottom: 1rem;
         }
         .info {
           padding: 1rem;

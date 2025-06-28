@@ -12,9 +12,9 @@ export const GenreService = {
    * @returns {string[]} Array of genre titles.
    */
   getNames(genreIds) {
-    return genreIds.map(
-    (id => {  const genre = genres.find(g => g.id === id);
+    return genreIds.map((id) => {
+      const genre = genres.find((g) => g.id === id);
       return genre?.title || "Unknown";
-    }));
-  }
+    });
+  },
 };
