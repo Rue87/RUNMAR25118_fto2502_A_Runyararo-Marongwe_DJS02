@@ -1,22 +1,47 @@
+/**
+ * @class PodcastPreview
+ * @description Custom Web Component that renders a podcast card preview.
+ * @extends HTMLElement
+ *
+ * @fires podcastClick - Dispatched when the card is clicked, sends full podcast data.
+ */
 export class PodcastPreview extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
   }
 
+  /**
+   * Lifecycle method called when the element is added to the DOM.
+   * Triggers initial render.
+   */
   connectedCallback() {
     this.render();
   }
-   set data(podcast) {
+  /**
+   * Sets the podcast data and triggers a render.
+   * @param {Object} podcast - The podcast object to render.
+   * @param {string} podcast.title - Title of the podcast.
+   * @param {string} podcast.image - URL for the cover image.
+   * @param {string[]} podcast.genres - Array of genre names.
+   * @param {string} podcast.updated - Formatted date string.
+   * @param {number} podcast.seasons - Total number of seasons.
+   */
+  set data(podcast) {
     this._data = podcast;
     this.render();
   }
+
+  /**
+   * Renders the card UI into the component's shadow DOM.
+   * Does nothing if no data is available.
+   */
   render() {
     if (!this._data) return;
 
-    const { title, image, genres, updated,seasons } = this._data;
+    const { title, image, genres, updated, seasons } = this._data;
 
-     this.shadowRoot.innerHTML = `
+    this.shadowRoot.innerHTML = `
       <style>
         .card {
           border: 1px solid #ccc;
@@ -78,22 +103,28 @@ export class PodcastPreview extends HTMLElement {
         <div class="cover" style="background-image: url('${image}')"></div>
         <div class="info">
           <h2>${title}</h2>
-          <div class="seasons">${seasons} ${seasons === 1 ? "season" : "seasons"}</div>
+          <div class="seasons">📺${seasons} ${
+      seasons === 1 ? "season" : "seasons"
+    }</div>
           <div class="tags">
-            ${genres.map(g => `<span class="tag">${g}</span>`).join("")}
+            ${genres.map((g) => `<span class="tag">${g}</span>`).join("")}
           </div>
           <div class="updated">${updated}</div>
         </div>
       </div>
     `;
-this.shadowRoot.querySelector(".card").addEventListener("click", () => {
-  this.dispatchEvent(new CustomEvent("podcastClick", {
-    detail: this._data,
-    bubbles: true,
-    composed: true
-  }));
-});
-};
+
+    // Emit event when card is clicked
+    this.shadowRoot.querySelector(".card").addEventListener("click", () => {
+      this.dispatchEvent(
+        new CustomEvent("podcastClick", {
+          detail: this._data,
+          bubbles: true,
+          composed: true,
+        })
+      );
+    });
+  }
 }
 
 customElements.define("podcast-preview", PodcastPreview);
