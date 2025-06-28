@@ -26,18 +26,26 @@ export class PodcastPreview extends HTMLElement {
           flex-direction: column;
           background: white;
           transition: transform 0.2s ease;
+          height: 100%;
+          justify-content: space-between;
         }
         .card:hover {
           transform: scale(1.02);
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         .cover {
+          width : 100%;
           height: 160px;
           background-size: cover;
           background-position: center;
+          margin bottom: 1rem;
         }
         .info {
           padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+          justify-content: space-between;
         }
         h2 {
           font-size: 1.1rem;

@@ -21,12 +21,28 @@ export const createModal = (() => {
     el("modalTitle").textContent = podcast.title;
     el("modalDesc").textContent = podcast.description;
 
-    el("modalGenres").innerHTML = GenreService.getNames(podcast.genres)
+    el("modalGenres").innerHTML = GenreService.getNames(podcast.genreIds || podcast.genres)
       .map((g) => `<span class="tag">${g}</span>`)
       .join("");
 
-    el("modalUpdated").textContent = DateUtils.format(podcast.updated);
+    //el("modalUpdated").textContent = DateUtils.format(podcast.updated);
+     //el("modalUpdated").innerHTML = `
+   // <img src="./icons/calendar.svg" class="calendar-icon" alt="calendar" />
+    // Last updated: ${DateUtils.format(podcast.rawUpdated || podcast.updated)}
+   //`;
 
+const rawDate = new Date(podcast.rawUpdated || podcast.updated);
+const formattedDate = rawDate.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+
+el("modalUpdated").innerHTML = `
+<span class="calendar-icon">📅</span>
+ 
+  Last updated: ${formattedDate}
+`;
     const seasonData =
       seasons.find((s) => s.id === podcast.id)?.seasonDetails || [];
     el("seasonList").innerHTML = seasonData
@@ -34,8 +50,8 @@ export const createModal = (() => {
         (s, index) => `
           <li class="season-item">
             <strong class="season-title">Season ${index + 1}: ${
-          s.title
-        }</strong>
+          s.title?`${s.title}` : ""}
+          </strong>
             <span class="episodes">${s.episodes} episodes</span>
           </li>`
       )

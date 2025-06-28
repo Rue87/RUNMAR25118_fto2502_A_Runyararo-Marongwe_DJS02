@@ -25,7 +25,9 @@ export const createGrid = () => {
         preview.data = {
           ...p,
           genres: GenreService.getNames(p.genres),
+          genreIds: p.genres,
           updated: DateUtils.format(p.updated),
+          rawUpdated: p.updated, 
           seasons: SeasonService.count(p.id),
         };
         //Handle podcastClick from component
