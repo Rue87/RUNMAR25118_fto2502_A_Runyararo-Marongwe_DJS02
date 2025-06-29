@@ -1,79 +1,100 @@
-# DJS01 Vanila JS Podcast App
+# Web Component: Podcast Preview
 
-This project is a **modular vanilla JavaScript application** that displays a list of podcasts as cards and shows detailed information in a modal when a card is clicked. It uses **factory functions**, **utility services**, and **clean folder structure** to emphasise good software design practices.
+This is a simple and interactive podcast preview component built using modern JavaScript. It uses a custom Web Component called `<podcast-preview>` to display each podcast as a card, showing the title, image, genres, number of seasons, and the last updated date.
 
-> **Note:** This solution focuses on **functionality and modular JavaScript design**. It does **not include extensive styling** or visual polish.  
-> You are encouraged to **customise the look and feel** of the app using your own CSS or Tailwind.
+You can use this component to show a list of podcasts, and when someone clicks on a card, more details can be shown in a modal or another part of your app.
 
-## Project Structure
+## Project Overview
 
-```
-/src
-│
-├── /components
-│ ├── createPodcastCard.js // Factory to generate podcast preview cards
-│ └── createModal.js // Modal controller factory (open/close/update content)
-│
-├── /utils
-│ ├── DateUtils.js // Utility for formatting date strings
-│ └── GenreService.js // Service to resolve genre IDs into names
-│
-├── /views
-│ └── createGrid.js // Grid renderer factory that places cards on the page
-│
-├── data.js // Sample data: podcasts, genres, seasons
-└── index.js // Application entry point and setup
-```
+This project demonstrates how to create a modular, reusable, and interactive UI using Vanilla JavaScript. It emphasizes clean architecture with Single Responsibility Principle (SRP), object-oriented patterns, and component-based rendering.
 
-## Features
+Each podcast is displayed as a custom element, <podcast-preview>, which encapsulates structure, styling, and event behavior, ensuring reusability across the app.
 
-- Renders podcast cards dynamically
-- Opens a modal with more information on click
-- Uses genre and season data for display
-- Formats dates cleanly and consistently
-- Follows **modular design** using **factory functions**
+## Technologies Used
 
-## Key Takeaways
+- **HTML5** – Semantic structure and layout
+- **CSS3** – Responsive layout and consistent component styling
+- **JavaScript (ES6+)** – Modular and object-oriented structure
+- **Custom Web Components** – <podcast-preview> encapsulates preview card logic
+- **JSDoc** – Used across all modules for self-documenting code
+- **Vanilla DOM API** – No frameworks or libraries
 
-### 1. **Modular Design**
+## Features Implemented
 
-- Code is split into small, focused modules.
-- Each file has a **single responsibility**, making it easier to understand and maintain.
+-  Podcast card grid using Web Component <podcast-preview>
+-  Click-to-view modal with rich podcast details
+-  Genre badge display (resolved from ID to name)
+-  📺 Emoji for seasons and 📅 calendar for updated date
+-  Genre dropdown filtering
+-  Consistent card sizes for a clean layout
+-  JSDoc documentation for all major functions and modules
+-  Modular, maintainable code following SRP and OOP 
 
-### 2. **Factory Functions**
+## How the Web Component Works
 
-- Modules like `createPodcastCard`, `createGrid`, and `createModal` return objects that encapsulate logic.
-- This promotes **encapsulation** and **reuse**.
+The <podcast-preview> Web Component is defined using the class extends HTMLElement syntax. When added to the DOM:
 
-  Example:
+1. It receives podcast data via set data(podcast) method.
 
-  ```js
-  const grid = createGrid();
-  grid.render(podcastList);
-  ```
+2. It uses the Shadow DOM to encapsulate internal styles and markup.
 
-### 3. Abstraction
+3. It renders the following within each card:
 
-- Internals (like how date formatting or genre mapping works) are hidden behind clear interfaces (`DateUtils.format, GenreService.getNames`).
+  - Podcast image
 
-- Consumers don’t need to know how something works, only what it does.
+  - Title
 
-### 4. SRP (Single Responsibility Principle)
+  - Genre badges (resolved from genre IDs)
 
-- Each module does one thing:
-  - `DateUtils.js` – formats dates
-  - `createModal.js` – controls the modal
-  - `createPodcastCard.js` – creates UI for one podcast
-  - `createGrid.js` – manages layout and rendering
+  - 📺 Season count
 
-### 5. Clear Entry Point
+  - 📅 Human-readable updated date
 
-- `index.js` acts as the orchestrator, setting up the app and wiring components together.
-- This keeps global logic and setup in one place.
+4. It dispatches a custom show-modal event when clicked, sending the podcast data to the parent, which    then opens the modal with detailed info.
+
+This approach allows full reusability, testability, and separation of concerns.
+
+## User Guide
+
+### Browsing & Interaction
+
+- A grid of podcasts is displayed on load using the <podcast-preview> component.
+- Each podcast card shows:
+  - Title
+  - Cover image
+  - Genre tags
+  - Season count (📺 icon included)
+  - Last updated date (📅 with proper formatting)
+
+### Viewing Podcast Details
+
+- Click on any podcast card to open a modal.
+- The modal displays:
+  - Description
+  - Full genre tags
+  - List of seasons and number of episodes
+  - Last updated date with 📅
 
 ## How to Run
 
-1. Open `index.html` in your browser.
-2. Browse through the podcast cards.
-3. Click a card to view more information in the modal.
-4. Click "Close" to return to the list.
+1. **Clone or download** this repository.
+2. Open index.html in a modern browser.
+3. You’ll see a grid of podcast cards loaded using the component, click a card to trigger the modal event
+4. No build step or external dependencies required.
+
+## Challenges Faced
+
+- Mapping genre IDs to readable names required careful separation of logic (solved using GenreService)
+- Some podcasts had incomplete season data, leading to duplication in the modal.
+- Date formatting needed to support both relative and absolute formats with fallback for invalid data
+- Making all cards equal height required CSS tuning inside a shadow DOM
+- Consistency across modules was achieved by implementing Prettier-style formatting and adding JSDoc
+
+P.S. This project is open for colaboration. My contacts are just below.
+
+## Contact
+
+[Runyararo Marongwe/mrunya87@gmail.com] [https://github.com/Rue87]
+
+
+

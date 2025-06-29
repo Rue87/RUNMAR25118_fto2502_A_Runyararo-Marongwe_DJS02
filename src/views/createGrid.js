@@ -3,7 +3,7 @@ import { createModal } from "../components/createModal.js";
 import { GenreService } from "../utils/GenreService.js";
 import { DateUtils } from "../utils/DateUtils.js";
 import { SeasonService } from "../utils/seasonService.js";
-
+import"../components/PodcastPreview.js"; // Register the podcast-preview custom element
 /**
  * @module createGrid
  * @description Grid Renderer - Responsible for rendering the grid of podcast preview components.

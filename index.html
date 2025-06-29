@@ -13,7 +13,26 @@
   <body>
     <header class="app-header">
       <h1>🎙️ Podcast App</h1>
+       <div class="header-icons">
+      <div class="icon-button" id="searchBtn" aria-label="Search">🔍</div>
+      <img src="./src/images/user-prof.png" alt="User Profile" class="user-profile" />
     </header>
+<!-- 🔽 Filter Bar Section -->
+<section class="filter-bar">
+  <div class="filter-controls">
+    <label for="genreFilter">Filter by:</label>
+    <select id="genreFilter">
+      <option value="all">All Genres</option>
+      <!-- Genres will be populated dynamically -->
+    </select>
+     <select id="sortFilter">
+      <option value="recent">Recently Updated</option>
+      <option value="">Most Popular</option>
+      <option value="">Newest</option>
+    </select>
+  </div>
+  </section>
+
 
     <main id="podcastGrid" class="grid"></main>
 

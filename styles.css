@@ -21,6 +21,50 @@ body {
   padding: 0.5rem;
 }
 
+/* Filter Bar Styles */
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #ddd;
+  background-color: #f9f9f9;
+  padding: 1rem;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Make labels and selects have consistent spacing */
+.filter-controls label {
+  font-weight: 600;
+  margin-right: 0.5rem;
+  min-width: 100px;
+}
+
+.filter-controls select {
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+ 
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.user-profile{
+  height:32px;
+  width:32px;
+  margin-right: 40px;
+}
+
 /*.grid {
   display: grid;
   gap: 1rem;
@@ -182,21 +226,27 @@ body {
 }
 @media (max-width: 1200px) {
   #podcastGrid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr); 
   }
 }
-
 @media (max-width: 900px) {
   #podcastGrid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+@media (max-width: 600px) {
+  #podcastGrid {
+    grid-template-columns: 1fr; 
+  }
+  .card {
+    padding: 0.5rem;
+  }
+  .card img {
+    height: 150px;
+    object-fit: cover;
   }
 }
 
-@media (max-width: 600px) {
-  #podcastGrid {
-    grid-template-columns: 1fr;
-  }
-}
 @media (max-width: 480px) {
   h1 {
     font-size: 1.5rem;
@@ -217,4 +267,26 @@ body {
   .season-title {
     font-size: 0.8rem;
   }
+  /* Responsive layout that stays horizontal */
+.filter-controls {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Consistent label spacing */
+.filter-controls label {
+  font-weight: 600;
+  margin-right: 0.5rem;
+  min-width: 100px;
+}
+
+/* Dropdown appearance */
+.filter-controls select {
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  min-width: 150px;
+  box-sizing: border-box;
+}
 }
