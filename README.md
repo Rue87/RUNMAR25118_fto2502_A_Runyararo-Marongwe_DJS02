@@ -40,19 +40,17 @@ The <podcast-preview> Web Component is defined using the class extends HTMLEleme
 
 3. It renders the following within each card:
 
-  - Podcast image
+    - Podcast image
 
-  - Title
+    - Title
 
-  - Genre badges (resolved from genre IDs)
+    - Genre badges (resolved from genre IDs)
 
-  - 📺 Season count
+    - 📺 Season count
 
-  - 📅 Human-readable updated date
+    - 📅 Human-readable updated date
 
 4. It dispatches a custom show-modal event when clicked, sending the podcast data to the parent, which    then opens the modal with detailed info.
-
-This approach allows full reusability, testability, and separation of concerns.
 
 ## User Guide
 
