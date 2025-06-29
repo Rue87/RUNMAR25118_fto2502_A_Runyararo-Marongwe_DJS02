@@ -8,7 +8,7 @@ import { genres } from "./data.js";
  * Populate the #genreFilter dropdown with genre titles.
  */
 
- function populateGenreDropdown() {
+function populateGenreDropdown() {
   const genreSelect = document.getElementById("genreFilter");
 
   genres.forEach((genre) => {

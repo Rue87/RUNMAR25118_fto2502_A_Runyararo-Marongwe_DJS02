@@ -21,14 +21,14 @@ Each podcast is displayed as a custom element, <podcast-preview>, which encapsul
 
 ## Features Implemented
 
--  Podcast card grid using Web Component <podcast-preview>
--  Click-to-view modal with rich podcast details
--  Genre badge display (resolved from ID to name)
--  📺 Emoji for seasons and 📅 calendar for updated date
--  Genre dropdown filtering
--  Consistent card sizes for a clean layout
--  JSDoc documentation for all major functions and modules
--  Modular, maintainable code following SRP and OOP 
+- Podcast card grid using Web Component <podcast-preview>
+- Click-to-view modal with rich podcast details
+- Genre badge display (resolved from ID to name)
+- 📺 Emoji for seasons and 📅 calendar for updated date
+- Genre dropdown filtering
+- Consistent card sizes for a clean layout
+- JSDoc documentation for all major functions and modules
+- Modular, maintainable code following SRP and OOP
 
 ## How the Web Component Works
 
@@ -40,17 +40,17 @@ The <podcast-preview> Web Component is defined using the class extends HTMLEleme
 
 3. It renders the following within each card:
 
-    - Podcast image
+   - Podcast image
 
-    - Title
+   - Title
 
-    - Genre badges (resolved from genre IDs)
+   - Genre badges (resolved from genre IDs)
 
-    - 📺 Season count
+   - 📺 Season count
 
-    - 📅 Human-readable updated date
+   - 📅 Human-readable updated date
 
-4. It dispatches a custom show-modal event when clicked, sending the podcast data to the parent, which    then opens the modal with detailed info.
+4. It dispatches a custom show-modal event when clicked, sending the podcast data to the parent, which then opens the modal with detailed info.
 
 ## User Guide
 
@@ -93,6 +93,3 @@ P.S. This project is open for colaboration. My contacts are just below.
 ## Contact
 
 [Runyararo Marongwe/mrunya87@gmail.com] [https://github.com/Rue87]
-
-
-
